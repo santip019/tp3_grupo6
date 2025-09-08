@@ -6,8 +6,8 @@ public class Ejercicio3 {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         byte opcion;
-        Empleado e = null; // Se inicializa en null para verificar si se ha creado un empleado
-        int legajo=0; // Variable para almacenar el legajo del último empleado creado (fuera de la repetitiva para que alcance a los otros casos del switch)
+        Empleado e = null; // Se inicializa en null para poder luego verificar si se ha creado un empleado
+        int legajo=0; // Variable para almacenar el legajo del último empleado creado (fuera de la estructura repetitiva para que alcance a los otros casos del switch)
 
         do {
             System.out.println("\n=== Menú de Opciones ===");
@@ -21,6 +21,7 @@ public class Ejercicio3 {
 
             switch (opcion) {
                 case 1:
+                //Crear empleado
                     System.out.print("\nIngrese nombre del empleado: ");
                     String nombre = sc.nextLine();
                     System.out.print("\nIngrese legajo del empleado: ");
@@ -33,6 +34,7 @@ public class Ejercicio3 {
                     break;
 
                 case 2:
+                //Aumentar salario al empleado
                     if (e == null) {
                         System.out.println("\nPrimero debe crear un empleado.");
                         break;
@@ -49,6 +51,7 @@ public class Ejercicio3 {
                     break;
 
                 case 3:
+                //Mostrar datos del empleado
                     if (e == null) {
                         System.out.println("\nPrimero debe crear un empleado.");
                     } else {
@@ -65,4 +68,18 @@ public class Ejercicio3 {
         } while (opcion != 4);
         sc.close();
     }
+    {/*
+Agregue la clase denominada Ejercicio3 dentro del paquete y dentro del método main() prepare
+un menú de opciones con las siguientes opciones:
+1- Crear empleado
+2- Aumentar Salario
+3- Mostrar los datos del empleado.
+4- Salir.
+En la opción 1 solicite al usuario que ingrese los datos para un nuevo empleado, utilice el
+constructor parametrizado para crear el objeto.
+En la opción 2, se debe pedir al usuario que ingrese un número de legajo, si coincide con el legajo
+del empleado creado en la opción 1 entonces proceder a aumentarle el sueldo.
+En la opción 3 Mostrar los datos del empleado.
+El menú se muestra en todo momento de la ejecución hasta que el usuario ingrese la opción 4.
+*/}
 }
