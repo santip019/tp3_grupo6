@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Ejercicio5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Producto[] productos = new Producto[3];
-        int contador = 0;
+        Producto[] productos = new Producto[3]; // Se inicia en un array de espacio maximo 3
+        int contador = 0; // Contardor que sirve para que no se creen mas de 3 productos
         byte opcion;
+
         do {
             System.out.println("\n=== Menú de Opciones ===");
             System.out.println("1. Crear producto");
@@ -17,9 +18,10 @@ public class Ejercicio5 {
             System.out.println("5. Salir");
             System.out.print("Ingrese una opción: ");
             opcion = sc.nextByte();
-            sc.nextLine();
+            sc.nextLine(); // Para limpiar el buffer del scanner
             switch (opcion) {
                 case 1:
+                    // crear un producto, ecritura de los atributos gracias a los setters
                     if (contador < productos.length) {
                         Producto p = new Producto();
 
@@ -42,7 +44,7 @@ public class Ejercicio5 {
 
                 case 2:
                     System.out.println("\n=== Lista de productos ===");
-                    for (Producto prod : productos) {
+                    for (Producto prod : productos) { // Por cada Elemento de tipo Producto en el array productos
                         if (prod != null) {
                             System.out.println(prod);
                         }
@@ -52,12 +54,12 @@ public class Ejercicio5 {
                 case 3:
                     System.out.print("Ingrese el código del producto a modificar: ");
                     String codigoBuscar = sc.nextLine();
-                    boolean encontrado = false;
+                    boolean encontrado = false; // booleano para verificar si existe el codigo de producto
                     for (Producto prod : productos) {
-                        if (prod != null && prod.getCodigo().equals(codigoBuscar)) {
-                            System.out.print("Ingrese el nuevo precio: ");
+                        if (prod != null && prod.getCodigo().equals(codigoBuscar)) {  // .equals se usa para comparar el contenido del elemento de un array, no es lo mismo que ==
+                            System.out.print("Ingrese el nuevo precio: ");          // se compara la lectura del codigo de cada producto(prod.getcodigo) con el codigo a buscar
                             double nuevoPrecio = sc.nextDouble();
-                            prod.setPrecio(nuevoPrecio);
+                            prod.setPrecio(nuevoPrecio);                              // se actualiza el precio
                             System.out.println("Precio actualizado.");
                             encontrado = true;
                             break;
@@ -74,7 +76,7 @@ public class Ejercicio5 {
                     System.out.println("\n=== Productos con precio mayor a " + precioMin + " ===");
                     for (Producto prod : productos) {
                         if (prod != null && prod.getPrecio() > precioMin) {
-                            System.out.println(prod);
+                            System.out.println(prod); // Muestra el producto como ya lo definimos en el tostring
                         }
                     }
                     break;
